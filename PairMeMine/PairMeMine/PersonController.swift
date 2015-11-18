@@ -35,6 +35,11 @@ class PersonController {
         saveToPersistentStorage()
     }
     
+    func removePerson(index: Int) {
+        persons.removeAtIndex(index)
+        saveToPersistentStorage()
+    }
+    
     func randomizePersons() -> [(Person, Person?)] {
         var persons = self.persons
         var pairedPersons = [(Person, Person?)]()

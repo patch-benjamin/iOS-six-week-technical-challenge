@@ -10,7 +10,7 @@
         <scene sceneID="PfV-oE-VzA">
             <objects>
                 <tableViewController id="3DX-kh-oJ7" customClass="PairTableViewController" customModule="PairMeMine" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="96" sectionHeaderHeight="28" sectionFooterHeight="28" id="x3L-sG-fJS">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="96" sectionHeaderHeight="28" sectionFooterHeight="28" id="x3L-sG-fJS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
@@ -134,7 +134,7 @@
         <scene sceneID="ufW-cE-GJ4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="k9t-ZX-VcX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="People" id="2Lv-ic-33t"/>
+                    <tabBarItem key="tabBarItem" title="People" image="people" id="2Lv-ic-33t"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yTv-y8-9IU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -154,7 +154,7 @@
         <scene sceneID="ScR-zQ-shY">
             <objects>
                 <tableViewController id="eHn-Ad-fRH" customClass="PeopleTableViewController" customModule="PairMeMine" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="oCn-I4-xVq">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="oCn-I4-xVq">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
@@ -242,7 +242,7 @@
         <scene sceneID="1df-mi-J8r">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tYh-Vz-6yF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Pair" id="pkn-RJ-3Z1"/>
+                    <tabBarItem key="tabBarItem" title="Pair" image="pair" id="pkn-RJ-3Z1"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rKv-cz-vx1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -259,4 +259,8 @@
             <point key="canvasLocation" x="756" y="-572"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pair" width="29" height="29"/>
+        <image name="people" width="29" height="29"/>
+    </resources>
 </document>
