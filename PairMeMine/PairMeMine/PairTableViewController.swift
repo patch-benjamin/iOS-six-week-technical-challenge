@@ -38,15 +38,15 @@ class PairTableViewController: UITableViewController {
     // MARK: Actions
     @IBAction func uploadButtonTapped(sender: UIBarButtonItem) {
     
-        var message: String = "Here is my randomized group:\n"
+        var message: String = "Here is my randomized group:\n\n"
         
         for var i = 0; i < randomizedPersons.count; i++ {
             let groupArray = randomizedPersons[i]
             message += "Group \(i + 1): "
             groupArray.forEach({ (person) -> () in
-                person == groupArray.last ? (message += "\(person)") : (message += "\(person), ")
+                person == groupArray.last ? (message += "and \(person.name)") : (message += "\(person.name), ")
             })
-            message += "\n"
+            message += "\n\n"
         }
         message += "\n\nI created this list using PairMeMine. Download in the App Store!"
         let actionVC = UIActivityViewController(activityItems: [message], applicationActivities: [])
