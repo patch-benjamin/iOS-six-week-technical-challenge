@@ -16,6 +16,8 @@ class PairTableViewController: UITableViewController {
         }
     }
     
+    @IBOutlet weak var groupNameLabel: UILabel!
+    
     var randomizedPersons: [[Person]] = []
     
     var pairingSize: Int = 2
@@ -30,6 +32,7 @@ class PairTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        groupNameLabel.text = group.name
         randomizedPersons = GroupController.randomizePersons(self.group, pairingSize: pairingSize)
         tableView.reloadData()
     }

@@ -15,9 +15,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Name Here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ay9-RA-LOL">
+                            <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pairedUserCell" textLabel="b28-Zp-kPX" detailTextLabel="pd9-Vw-elM" rowHeight="37" style="IBUITableViewCellStyleValue1" id="tDU-3W-EmC">
-                                <rect key="frame" x="0.0" y="92" width="600" height="37"/>
+                                <rect key="frame" x="0.0" y="136" width="600" height="37"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tDU-3W-EmC" id="4Pf-ZX-mHk">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="36"/>
@@ -70,6 +78,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="groupNameLabel" destination="ay9-RA-LOL" id="6FP-LG-ZlX"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WxH-l7-0Kr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -135,11 +146,11 @@
             </objects>
             <point key="canvasLocation" x="245" y="304"/>
         </scene>
-        <!--People-->
+        <!--Groups-->
         <scene sceneID="ufW-cE-GJ4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="k9t-ZX-VcX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="People" image="people" id="2Lv-ic-33t"/>
+                    <tabBarItem key="tabBarItem" title="Groups" image="people" id="2Lv-ic-33t"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="yTv-y8-9IU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
