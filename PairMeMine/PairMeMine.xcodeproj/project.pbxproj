@@ -74,6 +74,7 @@
 				7176E3EA1BFD19EA00BC2879 /* Assets.xcassets */,
 				7176E3EC1BFD19EA00BC2879 /* LaunchScreen.storyboard */,
 				7176E3EF1BFD19EA00BC2879 /* Info.plist */,
+				7176E3F91BFD1AF500BC2879 /* PairedPeopleTableViewCell.swift */,
 			);
 			path = PairMeMine;
 			sourceTree = "<group>";
@@ -82,7 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				71713D211BFD2689006E7398 /* PersonTableViewCell.swift */,
-				7176E3F91BFD1AF500BC2879 /* PairedPeopleTableViewCell.swift */,
 				7176E3F51BFD1AD200BC2879 /* PeopleTableViewController.swift */,
 				7176E3F71BFD1AE000BC2879 /* PairTableViewController.swift */,
 			);

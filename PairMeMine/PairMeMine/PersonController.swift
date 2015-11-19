@@ -40,22 +40,24 @@ class PersonController {
         saveToPersistentStorage()
     }
     
-    func randomizePersons() -> [(Person, Person?)] {
-        var persons = self.persons
-        var pairedPersons = [(Person, Person?)]()
-        while persons.count > 1 {
-            
-            var randomInt = Int(arc4random_uniform(UInt32(persons.count)))
-            let person1 = persons.removeAtIndex(randomInt)
-            
-            randomInt = Int(arc4random_uniform(UInt32(persons.count)))
-            let person2 = persons.removeAtIndex(randomInt)
-            
-            pairedPersons.append((person1, person2))
-        }
+    func randomizePersons(groupSize: Int) -> [[Person]] {
         
-        if let person = persons.first {
-            pairedPersons.append((person, nil))
+        var persons = self.persons
+        var pairedPersons = [[Person]]()
+        var groupNumber: Int = 0
+        
+        while persons.count > 1 {
+            pairedPersons.append([])
+            for var i = 0; i < groupSize; i++ {
+        
+                let randomInt = Int(arc4random_uniform(UInt32(persons.count)))
+                let person = persons.removeAtIndex(randomInt)
+                pairedPersons[groupNumber].append(person)
+            
+            }
+            
+            groupNumber++
+        
         }
         
         return pairedPersons
