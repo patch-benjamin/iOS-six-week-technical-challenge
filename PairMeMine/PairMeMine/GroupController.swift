@@ -35,13 +35,17 @@ class GroupController {
         var pairedPersons = [[Person]]()
         var groupNumber: Int = 0
         
-        while persons.count > 1 {
+        while persons.count > 0{
             pairedPersons.append([])
             for var i = 0; i < pairingSize; i++ {
-                
-                let randomInt = Int(arc4random_uniform(UInt32(persons.count)))
-                let person = persons.removeAtIndex(randomInt)
-                pairedPersons[groupNumber].append(person)
+                if persons.count != 0 {
+                    let randomInt = Int(arc4random_uniform(UInt32(persons.count)))
+                    let person = persons.removeAtIndex(randomInt)
+                    pairedPersons[groupNumber].append(person)
+                } else {
+//                    let person = Person(firstName: "Choose your partner!")
+//                    pairedPersons[groupNumber].append(person)
+                }
                 
             }
             
