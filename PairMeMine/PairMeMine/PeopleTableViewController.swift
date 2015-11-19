@@ -20,12 +20,16 @@ class PeopleTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(animated: Bool) {
+        tableView.reloadData()
     }
     
-
+    
+    var group: Group {
+        return GroupController.sharedInstance.currentGroup
+    }
+    
+    
     @IBAction func newPersonButtonTapped(sender: UIBarButtonItem) {
         
         let newPersonAlertController = UIAlertController(title: "Add Person", message: "Enter the name of ther person below:", preferredStyle: .Alert)
@@ -46,7 +50,7 @@ class PeopleTableViewController: UITableViewController {
                 
                     if let firstName = firstNameTextField.text where firstName != "", let lastName = lastnameTextField.text {
                 
-                    PersonController.sharedInstance.addPerson(Person(firstName: firstName, lastName: lastName))
+                    GroupController.sharedInstance.addPersonToGroup(self.group, person: Person(firstName: firstName, lastName: lastName))
                     self.tableView.reloadData()
                 
                 } else {
@@ -68,7 +72,6 @@ class PeopleTableViewController: UITableViewController {
     }
     
     
-    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -78,13 +81,13 @@ class PeopleTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return PersonController.sharedInstance.persons.count
+        return group.persons.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCellWithIdentifier("customPersonCell", forIndexPath: indexPath) as? PersonTableViewCell {
             
-            let person = PersonController.sharedInstance.persons[indexPath.row]
+            let person = group.persons[indexPath.row]
             
             cell.delegate = self
             cell.index = indexPath.row
@@ -111,7 +114,7 @@ class PeopleTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
 
-            PersonController.sharedInstance.removePerson(indexPath.row)
+            GroupController.sharedInstance.removePersonFromGroup(self.group, index: indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         
         } else if editingStyle == .Insert {
@@ -134,15 +137,14 @@ class PeopleTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "showGroups" {
+        }
     }
-    */
 
 }
 
@@ -151,7 +153,7 @@ extension PeopleTableViewController: personTableViewCellDelegate {
     // TODO: implement persontableviewdelegate
     func userEditButtonTapped(index: Int?) {
         if let index = index {
-            let person = PersonController.sharedInstance.persons[index]
+            let person = group.persons[index]
             
             let editPersonAlertController = UIAlertController(title: "Edit Person", message: "Edit the name of ther person below:", preferredStyle: .Alert)
             
@@ -172,7 +174,7 @@ extension PeopleTableViewController: personTableViewCellDelegate {
                         
                         if let firstName = firstNameTextField.text, let lastName = lastnameTextField.text {
                             
-                            PersonController.sharedInstance.editPerson(Person(firstName: firstName, lastName: lastName), index: index)
+                            GroupController.sharedInstance.editPersonInGroup(self.group, person: Person(firstName: firstName, lastName: lastName), index: index)
                 
                             self.tableView.reloadData()
                             
@@ -200,5 +202,9 @@ extension PeopleTableViewController: personTableViewCellDelegate {
             print("Invalid Index when trying to edit user!")
         }
     }
+    
+}
+
+extension PeopleTableViewController {
     
 }

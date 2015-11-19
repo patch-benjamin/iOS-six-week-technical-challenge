@@ -31,8 +31,8 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pd9-Vw-elM">
-                                            <rect key="frame" x="543" y="8" width="42" height="20"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="&quot;&quot;" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pd9-Vw-elM">
+                                            <rect key="frame" x="571" y="8" width="14" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -75,6 +75,44 @@
             </objects>
             <point key="canvasLocation" x="1568" y="-572"/>
         </scene>
+        <!--Groups-->
+        <scene sceneID="Gig-Fi-YEA">
+            <objects>
+                <tableViewController id="Bcv-UC-G2T" customClass="GroupsTableViewController" customModule="PairMeMine" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="siZ-ap-07m">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupCell" id="iUg-We-TrY">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iUg-We-TrY" id="pmZ-h8-NBF">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Bcv-UC-G2T" id="NTp-xR-zUG"/>
+                            <outlet property="delegate" destination="Bcv-UC-G2T" id="9k7-rH-iBI"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Groups" id="RJ1-Ag-gYg">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="e8p-fe-g1Y">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="Bcv-UC-G2T" id="znP-bA-x4u"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z8W-KM-Pff" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1653" y="183"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="saj-A2-uJS">
             <objects>
@@ -112,7 +150,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="blS-Mc-Xtt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1057" y="304"/>
+            <point key="canvasLocation" x="1073" y="1000"/>
         </scene>
         <!--People-->
         <scene sceneID="ScR-zQ-shY">
@@ -191,6 +229,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="People" id="SGc-0B-qWq">
+                        <barButtonItem key="leftBarButtonItem" title="Groups" id="dO8-np-MTo">
+                            <connections>
+                                <segue destination="Bcv-UC-G2T" kind="show" identifier="showGroups" id="VMZ-gb-uDj"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Swg-0y-3qW">
                             <connections>
                                 <action selector="newPersonButtonTapped:" destination="eHn-Ad-fRH" id="8qd-qX-33K"/>
@@ -200,7 +243,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3lM-KH-7CW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1742" y="304"/>
+            <point key="canvasLocation" x="1758" y="1000"/>
         </scene>
         <!--Pair-->
         <scene sceneID="1df-mi-J8r">

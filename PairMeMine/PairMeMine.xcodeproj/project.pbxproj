@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		71713D221BFD2689006E7398 /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71713D211BFD2689006E7398 /* PersonTableViewCell.swift */; };
 		71713D241BFD48C5006E7398 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71713D231BFD48C5006E7398 /* UIColorExtension.swift */; };
+		71713D261BFE1CF9006E7398 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71713D251BFE1CF9006E7398 /* Group.swift */; };
+		71713D281BFE1D6C006E7398 /* GroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71713D271BFE1D6C006E7398 /* GroupController.swift */; };
+		71713D2A1BFE3129006E7398 /* GroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71713D291BFE3129006E7398 /* GroupsTableViewController.swift */; };
 		7176E3E41BFD19EA00BC2879 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7176E3E31BFD19EA00BC2879 /* AppDelegate.swift */; };
 		7176E3E91BFD19EA00BC2879 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7176E3E71BFD19EA00BC2879 /* Main.storyboard */; };
 		7176E3EB1BFD19EA00BC2879 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7176E3EA1BFD19EA00BC2879 /* Assets.xcassets */; };
@@ -23,6 +26,9 @@
 /* Begin PBXFileReference section */
 		71713D211BFD2689006E7398 /* PersonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
 		71713D231BFD48C5006E7398 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		71713D251BFE1CF9006E7398 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		71713D271BFE1D6C006E7398 /* GroupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupController.swift; sourceTree = "<group>"; };
+		71713D291BFE3129006E7398 /* GroupsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsTableViewController.swift; sourceTree = "<group>"; };
 		7176E3E01BFD19EA00BC2879 /* PairMeMine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PairMeMine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7176E3E31BFD19EA00BC2879 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7176E3E81BFD19EA00BC2879 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -83,8 +89,9 @@
 			isa = PBXGroup;
 			children = (
 				71713D211BFD2689006E7398 /* PersonTableViewCell.swift */,
-				7176E3F51BFD1AD200BC2879 /* PeopleTableViewController.swift */,
 				7176E3F71BFD1AE000BC2879 /* PairTableViewController.swift */,
+				7176E3F51BFD1AD200BC2879 /* PeopleTableViewController.swift */,
+				71713D291BFE3129006E7398 /* GroupsTableViewController.swift */,
 			);
 			name = viewControllers;
 			sourceTree = "<group>";
@@ -94,6 +101,7 @@
 			children = (
 				71713D231BFD48C5006E7398 /* UIColorExtension.swift */,
 				7176E3FC1BFD1E8100BC2879 /* Person.swift */,
+				71713D251BFE1CF9006E7398 /* Group.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -102,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				7176E4001BFD1EB500BC2879 /* PersonController.swift */,
+				71713D271BFE1D6C006E7398 /* GroupController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -177,11 +186,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71713D261BFE1CF9006E7398 /* Group.swift in Sources */,
 				7176E3FD1BFD1E8100BC2879 /* Person.swift in Sources */,
 				7176E3FA1BFD1AF500BC2879 /* PairedPeopleTableViewCell.swift in Sources */,
+				71713D281BFE1D6C006E7398 /* GroupController.swift in Sources */,
 				7176E3F61BFD1AD200BC2879 /* PeopleTableViewController.swift in Sources */,
 				71713D241BFD48C5006E7398 /* UIColorExtension.swift in Sources */,
 				7176E3E41BFD19EA00BC2879 /* AppDelegate.swift in Sources */,
+				71713D2A1BFE3129006E7398 /* GroupsTableViewController.swift in Sources */,
 				7176E4011BFD1EB500BC2879 /* PersonController.swift in Sources */,
 				71713D221BFD2689006E7398 /* PersonTableViewCell.swift in Sources */,
 				7176E3F81BFD1AE000BC2879 /* PairTableViewController.swift in Sources */,
