@@ -19,14 +19,14 @@ class GroupController {
     var groups: [Group] = []
     
     init() {
-        groups = [Group(name: "FirstGroup", persons: [Person(firstName: "Ben", lastName: "Patch"), Person(firstName: "Kylee", lastName: "Patch"), Person(firstName: "Jon", lastName: "Patch"), Person(firstName: "Matt", lastName: "Patch")]), Group(name: "secondGroup", persons: [Person(firstName: "Benny", lastName: "Patch"), Person(firstName: "Kylee", lastName: "Patchh"), Person(firstName: "Jonathan", lastName: "Patch"), Person(firstName: "T Matt", lastName: "Patch")])]
+        
+        currentGroup = Group(name: "No Groups Yet!")
+
+        loadFromPersistentStorage()
+        
         if let group = groups.first {
             currentGroup = group
-        } else {
-            currentGroup = Group(name: "No Groups Yet!")
         }
-        saveToPersistentStorage()
-        loadFromPersistentStorage()
     }
     
     static func randomizePersons(group: Group, pairingSize: Int) -> [[Person]] {

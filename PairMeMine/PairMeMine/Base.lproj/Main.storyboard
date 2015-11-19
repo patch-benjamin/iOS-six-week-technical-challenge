@@ -108,6 +108,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="eHn-Ad-fRH" kind="show" identifier="segueToPeople" id="X2r-5r-bfB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z8W-KM-Pff" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -145,7 +148,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="eHn-Ad-fRH" kind="relationship" relationship="rootViewController" id="Bbw-08-EoQ"/>
+                        <segue destination="Bcv-UC-G2T" kind="relationship" relationship="rootViewController" id="PhA-3P-k9s"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="blS-Mc-Xtt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -229,11 +232,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="People" id="SGc-0B-qWq">
-                        <barButtonItem key="leftBarButtonItem" title="Groups" id="dO8-np-MTo">
-                            <connections>
-                                <segue destination="Bcv-UC-G2T" kind="show" identifier="showGroups" id="VMZ-gb-uDj"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Swg-0y-3qW">
                             <connections>
                                 <action selector="newPersonButtonTapped:" destination="eHn-Ad-fRH" id="8qd-qX-33K"/>

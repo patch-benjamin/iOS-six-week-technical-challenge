@@ -68,7 +68,10 @@ class GroupsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         GroupController.sharedInstance.currentGroup = GroupController.sharedInstance.groups[indexPath.row]
-        self.navigationController?.popViewControllerAnimated(true)
+
+        performSegueWithIdentifier("segueToPeople", sender: self)
+        
+        
     }
     
     /*
