@@ -35,7 +35,7 @@ class PeopleTableViewController: UITableViewController {
         }
         
         newPersonAlertController.addTextFieldWithConfigurationHandler { (textField) -> Void in
-            textField.placeholder = "Last Name"
+            textField.placeholder = "Last Name (optional)"
         }
         
         let cancelAlert =  UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
@@ -44,7 +44,7 @@ class PeopleTableViewController: UITableViewController {
             if let firstNameTextField = newPersonAlertController.textFields?.first,
                 lastnameTextField = newPersonAlertController.textFields?[1] {
                 
-                    if let firstName = firstNameTextField.text, lastName = lastnameTextField.text {
+                    if let firstName = firstNameTextField.text where firstName != "", let lastName = lastnameTextField.text {
                 
                     PersonController.sharedInstance.addPerson(Person(firstName: firstName, lastName: lastName))
                     self.tableView.reloadData()
@@ -160,7 +160,7 @@ extension PeopleTableViewController: personTableViewCellDelegate {
             }
             
             editPersonAlertController.addTextFieldWithConfigurationHandler { (textField) -> Void in
-                textField.placeholder = "Last Name"
+                textField.text = person.lastName
             }
             
             let cancelAlert =  UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)

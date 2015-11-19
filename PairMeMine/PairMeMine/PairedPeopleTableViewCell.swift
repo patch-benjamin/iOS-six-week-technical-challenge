@@ -45,8 +45,11 @@ class PairedPeopleTableViewCell: UITableViewCell {
             user2Label.text = "Choose Your Pair!"
             
         }
+        let randomColor = UIColor.randomColor()
 
-        
+        user1Label.textColor = randomColor
+        pairedWithLabel.textColor = randomColor
+        user2Label.textColor = randomColor
         
     }
 }

@@ -21,13 +21,17 @@ class Person: NSObject, NSCoding {
     }
     
     init(firstName: String, lastName: String = "") {
-        self.firstName = firstName
-        self.lastName = lastName
+        
+        self.firstName = firstName.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).capitalizedString
+        self.lastName = lastName.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).capitalizedString
+    
     }
     
     required convenience init?(coder decoder: NSCoder) {
         guard let firstName = decoder.decodeObjectForKey(Person.kFirstName) as? String,
             let lastName = decoder.decodeObjectForKey(Person.kLastName) as? String else { return nil }
+        guard firstName != "" else { return nil }
+        
         self.init(firstName: firstName, lastName: lastName)
     }
     

@@ -62,6 +62,7 @@ class PairTableViewController: UITableViewController {
             return cell
         }
         else {
+            
             let cell = tableView.dequeueReusableCellWithIdentifier("noPairedUser", forIndexPath: indexPath)
             return cell
    
