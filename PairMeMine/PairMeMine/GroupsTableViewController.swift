@@ -32,12 +32,13 @@ class GroupsTableViewController: UITableViewController {
         let cancelAlert =  UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
         let saveAlert = UIAlertAction(title: "Save", style: .Default) { (alertAction) -> Void in
             if let nameTextField = newGroupAlertController.textFields?.first {
-                let name = nameTextField.text
-                GroupController.sharedInstance.addGroup(Group(name: name!))
-                self.tableView.reloadData()
+                let group = Group(name: nameTextField.text!)
+                GroupController.sharedInstance.addGroup(group)
+                GroupController.sharedInstance.currentGroup = group
+                self.navigationController?.popViewControllerAnimated(true)
             }
         }
-        
+
         newGroupAlertController.addAction(cancelAlert)
         newGroupAlertController.addAction(saveAlert)
         
@@ -69,8 +70,7 @@ class GroupsTableViewController: UITableViewController {
         
         GroupController.sharedInstance.currentGroup = GroupController.sharedInstance.groups[indexPath.row]
 
-        performSegueWithIdentifier("segueToPeople", sender: self)
-        
+        self.navigationController?.popViewControllerAnimated(true)
         
     }
     
@@ -85,10 +85,19 @@ class GroupsTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-
-            GroupController.sharedInstance.removeGroup(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        
+            let removeGroup = GroupController.sharedInstance.groups[indexPath.row]
+            if removeGroup != GroupController.sharedInstance.currentGroup {
+                GroupController.sharedInstance.removeGroup(indexPath.row)
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            } else {
+                // Present an alert informing the user that you cannot delet the current group.
+                let invalidRequestAlertController = UIAlertController(title: "Invalid Deletion", message: "Sorry, you cannot delete the currently selected group.", preferredStyle: .Alert)
+                let doneAlert =  UIAlertAction(title: "Done", style: .Default, handler: nil)
+                invalidRequestAlertController.addAction(doneAlert)
+                presentViewController(invalidRequestAlertController, animated: true, completion: nil)
+                tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Right)
+            }
+            
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    

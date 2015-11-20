@@ -12,6 +12,7 @@ import Foundation
 class GroupController {
  
     static let kGroups = "groups"
+    static let kCurrentGroupIndex = "currentGroupIndex"
     static let sharedInstance = GroupController()
     
     var currentGroup: Group
@@ -23,10 +24,7 @@ class GroupController {
         currentGroup = Group(name: "No Groups Yet!")
 
         loadFromPersistentStorage()
-        
-        if let group = groups.first {
-            currentGroup = group
-        }
+    
     }
     
     static func randomizePersons(group: Group, pairingSize: Int) -> [[Person]] {
@@ -88,6 +86,8 @@ class GroupController {
     func saveToPersistentStorage(){
         
         NSKeyedArchiver.archiveRootObject(self.groups, toFile: self.filePath(GroupController.kGroups))
+        let currentGroupIndex = self.groups.indexOf(currentGroup)
+        NSKeyedArchiver.archiveRootObject(currentGroupIndex!, toFile: self.filePath(GroupController.kCurrentGroupIndex))
         
     }
     
@@ -95,6 +95,11 @@ class GroupController {
         
         if let groups = NSKeyedUnarchiver.unarchiveObjectWithFile(self.filePath(GroupController.kGroups)) as? [Group] {
             self.groups = groups
+
+            if let currentGroupIndex = NSKeyedUnarchiver.unarchiveObjectWithFile(self.filePath(GroupController.kCurrentGroupIndex)) as? Int {
+                self.currentGroup = groups[currentGroupIndex]
+            }
+
         }
     }
     

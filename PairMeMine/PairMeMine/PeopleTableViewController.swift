@@ -28,6 +28,34 @@ class PeopleTableViewController: UITableViewController {
     }
     
     
+    @IBAction func newGroupButtonTapped(sender: UIButton) {
+        
+        // STEP 1: Create the alert controller and set the preferredStyle to .ActionSheet or .Alert
+        let newGroupAlertController = UIAlertController(title: "New Group", message: "Name your group:", preferredStyle: .Alert)
+        newGroupAlertController.addTextFieldWithConfigurationHandler { (textField) -> Void in
+            textField.placeholder = "Group Name"
+        }
+        // STEP 2: Create the alertAction(s) (AKA "buttons")
+        let cancelAlert =  UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        let saveAlert = UIAlertAction(title: "Save", style: .Default) { (alertAction) -> Void in
+            if let nameTextField = newGroupAlertController.textFields?.first {
+                let newGroup = Group(name: nameTextField.text!)
+
+                GroupController.sharedInstance.addGroup(newGroup)
+                GroupController.sharedInstance.currentGroup = newGroup
+                
+                self.tableView.reloadData()
+            }
+        }
+        
+        newGroupAlertController.addAction(cancelAlert)
+        newGroupAlertController.addAction(saveAlert)
+        
+        
+        presentViewController(newGroupAlertController, animated: true, completion: nil)
+        
+    }
+    
     @IBAction func newPersonButtonTapped(sender: UIBarButtonItem) {
         
         let newPersonAlertController = UIAlertController(title: "Add Person", message: "Enter the name of ther person below:", preferredStyle: .Alert)

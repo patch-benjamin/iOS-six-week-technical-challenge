@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Pair-->
@@ -119,9 +120,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="eHn-Ad-fRH" kind="show" identifier="segueToPeople" id="X2r-5r-bfB"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z8W-KM-Pff" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -159,7 +157,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Bcv-UC-G2T" kind="relationship" relationship="rootViewController" id="PhA-3P-k9s"/>
+                        <segue destination="eHn-Ad-fRH" kind="relationship" relationship="rootViewController" id="Hmh-pf-EEr"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="blS-Mc-Xtt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -243,11 +241,35 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="People" id="SGc-0B-qWq">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Swg-0y-3qW">
-                            <connections>
-                                <action selector="newPersonButtonTapped:" destination="eHn-Ad-fRH" id="8qd-qX-33K"/>
-                            </connections>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="Vv8-3Y-Iz4">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FCa-SL-ExF">
+                                <rect key="frame" x="20" y="7" width="29" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <animations/>
+                                <state key="normal" image="groups"/>
+                                <connections>
+                                    <segue destination="Bcv-UC-G2T" kind="show" id="6gy-2f-NIg"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="Swg-0y-3qW">
+                                <connections>
+                                    <action selector="newPersonButtonTapped:" destination="eHn-Ad-fRH" id="8qd-qX-33K"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem style="plain" id="SGm-ws-u9E">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bRH-iS-JTn">
+                                    <rect key="frame" x="515" y="7" width="29" height="29"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <animations/>
+                                    <state key="normal" image="addGroup"/>
+                                    <connections>
+                                        <action selector="newGroupButtonTapped:" destination="eHn-Ad-fRH" eventType="touchUpInside" id="fFj-EL-l3k"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3lM-KH-7CW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -276,6 +298,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="addGroup" width="29" height="29"/>
+        <image name="groups" width="29" height="29"/>
         <image name="pair" width="29" height="29"/>
         <image name="people" width="29" height="29"/>
     </resources>
